@@ -57,7 +57,7 @@ const BgImage = styled.div`
 `;
 
 const CTA = styled.div`
-  max-width: 650px;
+  max-width: 600px;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -65,7 +65,7 @@ const CTA = styled.div`
 
 const CTALogoOne = styled.img`
   margin-bottom: 12px;
-  max-width: 650px;
+  max-width: 600px;
   min-height: 1px;
   display: block;
   width: 100%;
@@ -98,7 +98,7 @@ const Description = styled.h2`
 `
 
 const CTALogoTwo = styled.img`
-  max-width: 650px;
+  max-width: 600px;
   margin-bottom: 20px;
   display: inline-block;
   vertical-align: bottom;
