@@ -1,7 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
+import {auth, provider} from './Firebase'
 
 const Header = () => {
+
+    const handleAuth = () => {
+        auth.signInWithPopup(provider)
+        .then((result) => {
+            console.log(result)
+        })
+        .catch((error) => {
+            alert(error.message)
+        })
+    }
+
   return (
     <Nav>
         <Logo>
@@ -12,7 +24,28 @@ const Header = () => {
                 <img src='images/home-icon.svg' alt='home'/>
                 <span>HOME</span>
             </a>
+            <a href='/search'>
+                <img src='images/search-icon.svg' alt='search'/>
+                <span>SEARCH</span>
+            </a>
+            <a href='/watchlist'>
+                <img src='images/watchlist-icon.svg' alt='home'/>
+                <span>WATCHLIST</span>
+            </a>
+            <a href='/originals'>
+                <img src='images/original-icon.svg' alt='originals'/>
+                <span>ORIGINALS</span>
+            </a>
+            <a href='/movies'>
+                <img src='images/movie-icon.svg' alt='movies'/>
+                <span>MOVIES</span>
+            </a>
+            <a href='/series'>
+                <img src='images/series-icon.svg' alt='series'/>
+                <span>SERIES</span>
+            </a>
         </NavMenu>
+        <Login onClick={handleAuth}>LOGIN</Login>
     </Nav>
   )
 }
@@ -55,7 +88,7 @@ const NavMenu = styled.div`
     padding: 0;
     position: relative;
     margin-right: auto;
-    margin-left: 25px;
+    margin-left: 20px;
 
     a{
         display: flex;
@@ -72,9 +105,9 @@ const NavMenu = styled.div`
         span{
             font-size: 13px;
             color: rgb(249,249,249);
-            letter-spacing: 1.42px;
+            letter-spacing: 1.2px;
             line-height: 1.08;
-            padding: 2px 0;
+            padding: 2px 2px;
             white-space: nowrap;
             position: relative;
             
@@ -108,6 +141,23 @@ const NavMenu = styled.div`
 
     @media (max-width:768px){
         display: none;
+    }
+`
+
+const Login = styled.a`
+    background-color: rgba(0,0,0,0.6);
+    padding: 8px 16px;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    border: 1px solid #f9f9f9;
+    border-radius: 4px;
+    transition: all 0.2s ease 0s;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #f9f9f9;
+        color: #000;
+        border-color: transparent;
     }
 `
 
